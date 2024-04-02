@@ -29,7 +29,8 @@
 
 <h4 align="center">
   <a href="https://mingyuan-zhang.github.io/projects/LMM.html" target='_blank'>[Project Page]</a> •
-  <a href="https://openreview.net/pdf?id=GYjV1M5s0D" target='_blank'>[PDF]</a> •
+  <a href="https://arxiv.org/pdf/2404.01284.pdf" target='_blank'>[PDF]</a> •
+  <a href="https://arxiv.org/abs/2404.01284" target='_blank'>[arXiv]</a> •
   <a href="https://www.youtube.com/watch?v=Aprm9h8lFj4" target='_blank'>[Video]</a>
   <br> <br>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/LMM" width="8%" alt="visitor badge"/>
