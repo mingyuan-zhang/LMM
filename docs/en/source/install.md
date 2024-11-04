@@ -31,7 +31,7 @@ conda install pytorch3d -c pytorch3d -y
 python3 -m pip install --verbose --upgrade git+https://github.com/microsoft/tutel@main
 
 # Install other requirements
-pip install -r requirements.txt
+pip install -r requirements/mogen.txt
 
 # Install ImageBind
 pip install --no-deps git+https://github.com/facebookresearch/ImageBind@main
