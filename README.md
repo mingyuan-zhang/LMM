@@ -35,9 +35,9 @@
   <a href="https://lmm.readthedocs.io/en/latest/index.html" target='_blank'>[Documentation]</a>
   <br> <br>
   <a href='https://lmm.readthedocs.io/en/latest/?badge=latest'>
-    <img src='https://readthedocs.org/projects/lmm/badge/?version=latest' alt='Documentation Status' />
+    <img src='https://readthedocs.org/projects/lmm/badge/?version=latest' alt='Documentation Status' height="20"/>
   </a>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/LMM" width="8%" alt="visitor badge"/>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/LMM" alt="visitor badge" height="20"/>
 </h4>
 
 </div>
