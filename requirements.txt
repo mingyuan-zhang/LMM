@@ -1,0 +1,22 @@
+numpy==1.23.1
+ftfy
+regex
+tqdm
+scipy
+matplotlib
+pandas
+imageio
+git+https://github.com/openai/CLIP.git
+pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo.git@28fe037d212663c6a24f373b94cc5d478c8c1a1d
+timm==0.6.7
+einops
+fvcore
+eva-decord==0.6.1
+iopath
+types-regex
+mayavi
+cartopy
+gdown
+git+https://github.com/omimo/PyMO.git
+ipython
+librosa
