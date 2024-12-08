@@ -61,4 +61,82 @@ LMM tackles these challenges from three principled aspects:
 Extensive experiments demonstrate that our generalist LMM achieves competitive performance across various standard motion generation tasks over state-of-the-art specialist models. Notably, LMM exhibits strong generalization capabilities and emerging properties across many unseen tasks.
 
 
-Code is coming soon.
+## Updates
+
+[12/2024] Release code for [LMM](https://mingyuan-zhang.github.io/projects/LMM.html), [FineMoGen](https://mingyuan-zhang.github.io/projects/FineMoGen.html), [MoMat-MoGen](https://digital-life-project.com/), [ReMoDiffuse](https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html) and [MotionDiffuse](https://mingyuan-zhang.github.io/projects/MotionDiffuse.html)
+
+## Benchmark and Model Zoo
+
+#### Supported methods
+
+- [x] [MotionDiffuse](https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html)
+- [x] [MDM](https://guytevet.github.io/mdm-page/)
+- [x] [ReMoDiffuse](https://mingyuan-zhang.github.io/projects/MotionDiffuse.html)
+- [x] [MoMat-MoGen](https://digital-life-project.com/)
+- [x] [FineMoGen](https://mingyuan-zhang.github.io/projects/FineMoGen.html)
+- [x] [LMM](https://mingyuan-zhang.github.io/projects/LMM.html)
+
+
+## Citation
+
+If you find our work useful for your research, please consider citing the paper:
+
+```
+@inproceedings{zhang2025large,
+  title={Large motion model for unified multi-modal motion generation},
+  author={Zhang, Mingyuan and Jin, Daisheng and Gu, Chenyang and Hong, Fangzhou and Cai, Zhongang and Huang, Jingfang and Zhang, Chongzhi and Guo, Xinying and Yang, Lei and He, Ying and others},
+  booktitle={European Conference on Computer Vision},
+  pages={397--421},
+  year={2025},
+  organization={Springer}
+}
+@article{zhang2023finemogen,
+  title={Finemogen: Fine-grained spatio-temporal motion generation and editing},
+  author={Zhang, Mingyuan and Li, Huirong and Cai, Zhongang and Ren, Jiawei and Yang, Lei and Liu, Ziwei},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  pages={13981--13992},
+  year={2023}
+}
+@article{zhang2023remodiffuse,
+  title={ReMoDiffuse: Retrieval-Augmented Motion Diffusion Model},
+  author={Zhang, Mingyuan and Guo, Xinying and Pan, Liang and Cai, Zhongang and Hong, Fangzhou and Li, Huirong and Yang, Lei and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2304.01116},
+  year={2023}
+}
+@article{zhang2022motiondiffuse,
+  title={MotionDiffuse: Text-Driven Human Motion Generation with Diffusion Model},
+  author={Zhang, Mingyuan and Cai, Zhongang and Pan, Liang and Hong, Fangzhou and Guo, Xinying and Yang, Lei and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2208.15001},
+  year={2022}
+}
+```
+
+## Installation
+
+```shell
+# Create Conda Environment
+conda create -n mogen python=3.9 -y
+conda activate mogen
+
+# Install Pytorch
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
+
+# Install MMCV
+pip install "mmcv-full>=1.4.2,<=1.9.0" -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.12.1/index.html
+
+# Install Pytorch3d
+conda install -c bottler nvidiacub -y
+conda install -c fvcore -c iopath -c conda-forge fvcore iopath -y
+conda install pytorch3d -c pytorch3d -y
+
+# Install tutel
+python3 -m pip install --verbose --upgrade git+https://github.com/microsoft/tutel@main
+
+# Install other requirements
+pip install -r requirements/mogen.txt
+
+# Install ImageBind
+pip install --no-deps git+https://github.com/facebookresearch/ImageBind@main
+```
+
