@@ -406,11 +406,124 @@ motion_verse
 
 ### UESTC
 
+The [UESTC dataset](https://github.com/HRI-UESTC/CFM-HRI-RGB-D-action-database) is a comprehensive and widely-used dataset in the field of human motion analysis and behavior recognition. It consists of high-quality video recordings and sensor data, capturing various types of human activities and interactions in diverse environments. The dataset includes labeled data with detailed annotations for different types of human motions, making it highly suitable for applications such as action recognition, pose estimation, and motion prediction. Due to its diversity and precision, the UESTC dataset is a valuable resource for researchers and developers working on computer vision, machine learning, and artificial intelligence projects aimed at advancing human motion understanding.
+
+In our MotionVerse, the UESTC dataset is used for action-conditioned motion generation. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── uestc
+            ├── eval_motions
+            │   ├── 00000.npy
+            │   ├── ...
+            │   └── 25599.npy
+            ├── metas
+            │   ├── 00000.json
+            │   ├── ...
+            │   └── 25599.json
+            ├── motions
+            │   ├── 00000.npz
+            │   ├── ...
+            │   └── 25599.npz
+            ├── splits
+            │   ├── official_test.txt
+            │   └── official_train.txt
+            ├── text_feats
+            │   ├── 00000.pkl
+            │   ├── ...
+            │   └── 25599.pkl
+            └── texts
+                ├── 00000.json
+                ├── ...
+                └── 25599.json
+```
+
 ### NTU-RGB-D 120
+
+The [NTU RGB+D 120 dataset](https://rose1.ntu.edu.sg/dataset/actionRecognition/) is one of the largest and most diverse datasets for human action recognition, designed to advance research in understanding complex human activities. It contains over 114,000 video samples across 120 action classes, capturing various human motions, interactions, and behaviors. The data is recorded using RGB, depth, and skeleton modalities, providing rich information about each action from multiple perspectives. This dataset includes both individual and group actions and was collected with multiple actors in a wide range of environments. NTU RGB+D 120 is widely used for applications in computer vision and deep learning, particularly in human action recognition, pose estimation, and behavioral analysis, due to its scale, variety, and multimodal design.
+
+We extract the single person motion from NTU RGB+D 120 dataset and form a action-conditioned motion generation dataset. You may refer to the [homepage link](https://rose1.ntu.edu.sg/dataset/actionRecognition/) to request authorization to use NTU-RGB-D 120 for non-commercial purposes. Download NTU-RGB-D 120 files and rearrange the files as following structure:
+```text
+motion_verse
+    └── raw_data
+        └── ntu
+            ├── action_name.txt
+            ├── create_dataset.py
+            ├── invalid_seq.txt
+            ├── nturgbd_skeletons_s001_to_s017.zip
+            ├── nturgbd_skeletons_s018_to_s032.zip
+            └── prepare.sh
+```
+After run `prepare.sh`, the created files are organized as:
+```text
+motion_verse
+    └── datasets
+        └── ntu
+            ├── metas
+            │   ├── S001C001P001R001A001.json
+            │   ├── ...
+            │   └── S032C003P106R002A105.json
+            ├── motions
+            │   ├── S001C001P001R001A001.npz
+            │   ├── ...
+            │   └── S032C003P106R002A105.npz
+            ├── splits
+            │   └── train.txt
+            ├── text_feats
+            │   ├── S001C001P001R001A001.pkl
+            │   ├── ...
+            │   └── S032C003P106R002A105.pkl
+            └── texts
+                ├── S001C001P001R001A001.json
+                ├── ...
+                └── S032C003P106R002A105.json
+```
 
 ### 3DPW
 
+The [3DPW dataset](https://virtualhumans.mpi-inf.mpg.de/3DPW/) is a high-quality dataset designed to facilitate research in 3D human pose estimation under challenging, real-world conditions. It contains video sequences with accurate 3D poses and shapes of people in outdoor and indoor environments, recorded using synchronized video and inertial measurement units (IMUs) for precise motion capture. The dataset includes a diverse range of activities, making it ideal for training and evaluating 3D human pose and shape estimation models. 3DPW stands out for its detailed, real-world settings and provides annotations in the form of SMPL (Skinned Multi-Person Linear Model) parameters, making it a valuable resource for research in computer vision, augmented reality, and human-computer interaction.
+
+The 3DPW dataset is used for Motion Prediction and Motion Imitation. You may download 3DPW files and rearrange the files as following structure:
+```text
+motion_verse
+    └── raw_data
+        └── pw3d
+            ├── create_dataset.py
+            ├── imageFiles.zip
+            ├── prepare.sh
+            ├── pw3d_test.npz
+            ├── readme_and_demo.zip
+            └── sequenceFiles.zip
+```
+After run `prepare.sh`, the created files are organized as:
+```text
+motion_verse
+    └── datasets
+        └── pw3d
+            ├── eval_motions
+            │   ├── 000.npy
+            │   ├── ...
+            │   └── outdoors_fencing_01.npy
+            ├── metas
+            │   ├── 000.json
+            │   ├── ...
+            │   └── outdoors_fencing_01.json
+            ├── motions
+            │   ├── 000.npz
+            │   ├── ...
+            │   └── outdoors_fencing_01.npz
+            ├── splits
+            │   ├── test_mocap.txt
+            │   └── test_v2m.txt
+            └── texts
+                ├── 000.json
+                ├── ...
+                └── 035.json
+```
+
 ### Human3.6M
+
+### MPI-INF-3DHP
 
 ### TED-Gesture++
 
@@ -421,8 +534,6 @@ motion_verse
 ### BEAT
 
 ### AIST++
-
-### MPI-INF-3DHP
 
 ## Evaluation
 

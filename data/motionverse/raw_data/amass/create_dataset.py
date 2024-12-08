@@ -28,6 +28,9 @@ parent = {}
 for i in range(len(parents)):
     parent[i] = parents[i]
 cnt = 0
+ftrain1 = open('train.txt', 'w')
+ftrain2 = open('train_mocap.txt', 'w')
+ftest = open('test_mocap.txt', 'w')
 for line in tqdm(open('sequence_name.txt')):
     filename = line.strip()
     basename = '%06d' % cnt
@@ -36,6 +39,7 @@ for line in tqdm(open('sequence_name.txt')):
     amass_data = np.load(os.path.join(amass_dir, filename + '.npz'))
     N = pose_data.shape[0]
     framerate = float(amass_data['mocap_framerate'])
+    pose_data[:, :, 0] *= -1
     meta_data = {
         'framerate': framerate,
         'has_root': True,
@@ -55,17 +59,41 @@ for line in tqdm(open('sequence_name.txt')):
         meta_data=meta_data,
         root_dir=root_path,
         basename=basename)
+    if not 'BioMotionLab_NTroje' in filename:
+        ftrain1.write(basename + '\n')
+    basename = basename + '_mp'
+    sample_rate = int(framerate // 25)
+    sampled_index = np.arange(0, N, sample_rate)
+    amass_motion_poses = amass_data['poses']
+    amass_motion_poses = amass_motion_poses[sampled_index]
+    T = amass_motion_poses.shape[0]
+    amass_motion_poses = R.from_rotvec(amass_motion_poses.reshape(-1, 3)).as_rotvec()
+    amass_motion_poses = amass_motion_poses.reshape(T, 52, 3)
+    amass_motion_poses[:, 0] = 0
+    p3d0_tmp = p3d0.repeat([amass_motion_poses.shape[0], 1, 1])
+    amass_motion_poses = ang2joint(p3d0_tmp, torch.tensor(amass_motion_poses).float(), parent).reshape(-1, 52, 3)
+    meta_data = {
+        'framerate': 25,
+        'has_root': True,
+        'has_head': True,
+        'has_stem': True,
+        'has_larm': True,
+        'has_rarm': True,
+        'has_lleg': True,
+        'has_rleg': True,
+        'has_lhnd': True,
+        'has_rhnd': True,
+        'has_face': False,
+        'num_frames': int(amass_motion_poses.shape[0])
+    }
+    create_data_item(
+        keypoints3d=amass_motion_poses, 
+        meta_data=meta_data,
+        root_dir=root_path,
+        basename=basename)
+    eval_motion_path = os.path.join(eval_motions_dir, basename + '.npy')
+    np.save(eval_motion_path, amass_motion_poses[:, 4: 22])
     if 'BioMotionLab_NTroje' in filename:
-        sample_rate = int(framerate // 25)
-        sampled_index = np.arange(0, N, sample_rate)
-        amass_motion_poses = amass_data['poses']
-        amass_motion_poses = amass_motion_poses[sampled_index]
-        T = amass_motion_poses.shape[0]
-        amass_motion_poses = R.from_rotvec(amass_motion_poses.reshape(-1, 3)).as_rotvec()
-        amass_motion_poses = amass_motion_poses.reshape(T, 52, 3)
-        amass_motion_poses[:, 0] = 0
-        p3d0_tmp = p3d0.repeat([amass_motion_poses.shape[0], 1, 1])
-        amass_motion_poses = ang2joint(p3d0_tmp, torch.tensor(amass_motion_poses).float(), parent).reshape(-1, 52, 3)[:, 4:22]
-        
-        eval_motion_path = os.path.join(eval_motions_dir, basename + '.npy')
-        np.save(eval_motion_path, amass_motion_poses.reshape((T, 18, 3)))
+        ftest.write(basename + '\n')
+    else:
+        ftrain2.write(basename + '\n')

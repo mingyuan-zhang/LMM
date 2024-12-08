@@ -6,6 +6,7 @@ scipy
 matplotlib
 pandas
 imageio
+imageio-ffmpeg==0.4.9
 git+https://github.com/openai/CLIP.git
 pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo.git@28fe037d212663c6a24f373b94cc5d478c8c1a1d
 timm==0.6.7
@@ -20,3 +21,4 @@ gdown
 git+https://github.com/omimo/PyMO.git
 ipython
 librosa
+imageio-ffmpeg==0.4.9
