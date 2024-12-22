@@ -523,19 +523,174 @@ motion_verse
 
 ### Human3.6M
 
+The [Human3.6M dataset](http://vision.imar.ro/human3.6m/description.php) is one of the largest and most widely used benchmarks for research in 3D human pose estimation, motion analysis, and action recognition. It provides a comprehensive set of data captured in a controlled laboratory environment, enabling researchers to develop and evaluate algorithms for understanding human motion.
+
+The Human3.6M dataset is used for Motion Prediction and Motion Imitation. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── h36m
+            ├── eval_motions
+            │   ├── S11-directions_1.npy
+            │   ├── ...
+            │   └── subject9-599.npy
+            ├── metas
+            │   ├── S11-directions_1.json
+            │   ├── ...
+            │   └── subject9-599.json
+            ├── motions
+            │   ├── S11-directions_1.npz
+            │   ├── ...
+            │   └── subject9-599.npz
+            ├── splits
+            │   ├── train_v2m.txt
+            │   ├── train_mocap.txt
+            │   └── test_mocap.txt
+            └── video_feats
+                ├── subject1-000.pkl
+                ├── ...
+                └── subject9-599.pkl
+
+```
+
 ### MPI-INF-3DHP
+
+The [MPI-INF-3DHP dataset](https://vcai.mpi-inf.mpg.de/3dhp-dataset/) is a benchmark dataset designed to facilitate research in 3D human pose estimation, particularly in scenarios that involve both indoor and outdoor settings. It addresses limitations of existing datasets by providing diverse environments and realistic challenges, making it a valuable resource for developing robust algorithms.
+
+The MPI-INF-3DHP dataset is used for Motion Imitation. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── mpi
+            ├── metas
+            │   ├── 000.json
+            │   ├── ...
+            │   └── 127.json
+            ├── motions
+            │   ├── 000.npz
+            │   ├── ...
+            │   └── 127.npz
+            ├── splits
+            │   └── train_v2m.txt
+            └── video_feats
+                ├── 000.pkl
+                ├── ...
+                └── 127.pkl
+```
 
 ### TED-Gesture++
 
+The [TED-Gesture++ dataset](https://github.com/ai4r/Gesture-Generation-from-Trimodal-Context) is built upon TED gesture dataset with 471 additional TED videos and 3D pose annotations. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── tedg
+            ├── metas
+            │   ├── 00000.json
+            │   ├── ...
+            │   └── 34490.json
+            ├── motions
+            │   ├── 00000.npz
+            │   ├── ...
+            │   └── 34490.npz
+            ├── splits
+            │   └── train.txt
+            ├── speech_feats
+            │   ├── 00000.pkl
+            │   ├── ...
+            │   └── 34490.pkl
+            └── speeches
+                ├── 00000.json
+                ├── ...
+                └── 34490.json
+```
+
 ### TED-Expressive
+
+The [TED-Expressive dataset](https://github.com/alvinliu0/HA2G) is also built upon TED gesture dataset with 3D pose annotations (43 keypoints). You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── tedex
+            ├── metas
+            │   ├── 00000.json
+            │   ├── ...
+            │   └── 27220.json
+            ├── motions
+            │   ├── 00000.npz
+            │   ├── ...
+            │   └── 27220.npz
+            ├── splits
+            │   └── train.txt
+            ├── speech_feats
+            │   ├── 00000.pkl
+            │   ├── ...
+            │   └── 27220.pkl
+            └── speeches
+                ├── 00000.json
+                ├── ...
+                └── 27220.json
+```
 
 ### Speech2Gesture-3D
 
+The [Speech2Gesture-3D dataset](https://github.com/GestureGeneration/Speech_driven_gesture_generation_with_autoencoder) is a specialized dataset designed for research in speech-driven gesture generation. It bridges the gap between speech signals and corresponding human gestures, enabling advancements in human-computer interaction and embodied conversational agents. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── s2g3d
+            ├── metas
+            │   ├── gesture21.json
+            │   ├── ...
+            │   └── gesture1182.json
+            ├── motions
+            │   ├── gesture21.npz
+            │   ├── ...
+            │   └── gesture1182.npz
+            ├── splits
+            │   └── train.txt
+            ├── speech_feats
+            │   ├── gesture21.pkl
+            │   ├── ...
+            │   └── gesture1182.pkl
+            └── speeches
+                ├── gesture21.json
+                ├── ...
+                └── gesture1182.json
+```
+
+
 ### BEAT
 
-### AIST++
-
-## Evaluation
+The [BEAT (Body-Expression-Audio-Text) dataset](https://github.com/PantoMatrix/PantoMatrix) is a large-scale multi-modal motion capture resource, offering 76 hours of data from 30 speakers across eight emotions and four languages, with 32 million frame-level annotations for emotion and semantic relevance. You may download via [link](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and unzip it as shown below:
+```text
+motion_verse
+    └── datasets
+        └── tedex
+            ├── eval_motions
+            │   ├── 10_kieks_0_10_10.npz
+            │   ├── ...
+            │   └── 9_miranda_1_9_9.npz
+            ├── evaluators
+            │   └── ae_300.bin
+            ├── metas
+            │   ├── 10_kieks_0_10_10.json
+            │   ├── ...
+            │   └── 9_miranda_1_9_9.json
+            ├── motions
+            │   ├── 10_kieks_0_10_10.npz
+            │   ├── ...
+            │   └── 9_miranda_1_9_9.npz
+            ├── splits
+            ├── speech_feats
+            │   ├── 10_kieks_0_10_10.pkl
+            │   ├── ...
+            │   └── 9_miranda_1_9_9.pkl
+            └── speeches
+                ├── 10_kieks_0_10_10.json
+                ├── ...
+                └── 9_miranda_1_9_9.json
+```
 
 ## Citation
 

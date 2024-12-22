@@ -36,19 +36,17 @@ class MonoTaskBatchSampler(BatchSampler):
         left_data = []
         for i in range(self.num_tasks):
             if len(self._task_buckets[i]) > 0:
-                left_data.append(self._task_buckets[i])
+                left_data.extend(self._task_buckets[i])
 
         self._task_buckets = [[] for _ in range(self.num_tasks)]
-        for data in left_data:
-            yield data
-        # while len(left_data) > 0:
-        #     if len(left_data) <= self.batch_size:
-        #         if not self.drop_last:
-        #             yield left_data[:]
-        #         left_data = []
-        #     else:
-        #         yield left_data[:self.batch_size]
-        #         left_data = left_data[self.batch_size:]
+        while len(left_data) > 0:
+            if len(left_data) <= self.batch_size:
+                if not self.drop_last:
+                    yield left_data[:1]
+                left_data = []
+            else:
+                yield left_data[:1]
+                left_data = left_data[self.batch_size:]
 
     def __len__(self) -> int:
         if self.drop_last:
