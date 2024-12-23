@@ -65,8 +65,9 @@ def main():
         distributed = False
     else:
         distributed = True
+        if cfg.get('dist_params', None) is None:
+            cfg.dist_params = dict(backend='nccl')
         init_dist(args.launcher, **cfg.dist_params)
-
     # build the dataloader
     dataset = build_dataset(cfg.data.test)
     # the extra round_up data will be removed during gpu/cpu collect

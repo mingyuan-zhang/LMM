@@ -32,7 +32,8 @@
   <a href="https://arxiv.org/pdf/2404.01284.pdf" target='_blank'>[PDF]</a> •
   <a href="https://arxiv.org/abs/2404.01284" target='_blank'>[arXiv]</a> •
   <a href="https://www.youtube.com/watch?v=Aprm9h8lFj4" target='_blank'>[Video]</a> •
-  <a href="https://lmm.readthedocs.io/en/latest/index.html" target='_blank'>[Documentation]</a>
+  <a href="https://lmm.readthedocs.io/en/latest/index.html" target='_blank'>[Documentation]</a> •
+  <a href="https://huggingface.co/spaces/mingyuan/LMM" target='_blank'>[Hugging Face Demo]</a>
   <br> <br>
   <a href='https://lmm.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/lmm/badge/?version=latest' alt='Documentation Status' height="20"/>
@@ -140,3 +141,19 @@ pip install -r requirements/mogen.txt
 pip install --no-deps git+https://github.com/facebookresearch/ImageBind@main
 ```
 
+## Data Preparation
+
+Please kindly refer to the [documentation](https://lmm.readthedocs.io/en/latest/datasets/motionverse.html) for the detailed instruction.
+
+## Model Inference
+
+You may try our oneline demo on [Hugging Face](https://huggingface.co/spaces/mingyuan/LMM). Also you can download the pretrained weights form [google drive](https://drive.google.com/drive/folders/1FBu7AtKRKesUu6q4CNa4aq451BpEvy1O?usp=drive_link) and run the visualization script locally:
+```shell
+PYTHONPATH=".":$PYTHONPATH python tools/visualize_lmm.py ${CONFIG} ${CHECKPOINT} \
+    --text ${TEXT} \
+    --speech ${SPEECH_WAV_PATH} \
+    --motion_length ${MOTION_LENGTH} \
+    --out ${OUTPUT_ANIMATION_PATH} \
+    --fps 20.0 \
+    --device cpu
+```
